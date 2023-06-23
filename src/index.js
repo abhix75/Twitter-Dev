@@ -8,10 +8,12 @@ app.listen(3000,async ()=>{
     await connect();
     console.log('MongoDb connected');
 
-    const tweet = await Tweet.create({
-        content:"MY best tweet",
-        userEmail:"am@tt.com"
-    })
-    console.log(tweet);
+    // const tweet = await Tweet.create({
+    //     content:"MY best tweet",
+    //     userEmail:"am@tt.com"
+    // })
+
+    const Tweets = await Tweet.find()
+    console.log(Tweets);
 
 })
