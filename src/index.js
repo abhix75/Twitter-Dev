@@ -13,7 +13,9 @@ app.listen(3000,async ()=>{
     //     userEmail:"am@tt.com"
     // })
 
-    const Tweets = await Tweet.find()
+    const Tweets = await Tweet.find({
+        userEmail:"am@tt.com"
+    })
     console.log(Tweets);
 
 })
