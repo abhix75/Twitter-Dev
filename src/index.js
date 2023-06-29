@@ -26,6 +26,9 @@ const TweetRepo = new TweetRepository();
 // await tweet.save();
 // const tweet = await TweetRepo.get('6495b515d9f16243bfb9cee2');
 const tweet = await TweetRepo.update('6495951af38345441c52aac4',{userEmail:'kaka@gmail.com'})
-console.log(tweet)
+const tweets = await TweetRepo.getAll(0,4);
+console.log(tweets)
+console.log(tweets[2].contentWithEmail)
+
 
 })
