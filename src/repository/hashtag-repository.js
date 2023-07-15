@@ -39,7 +39,7 @@ class HashtagRepository {
     try {
       const tags = await Hashtag.find({
         title: titleList,
-      });
+      }).select('title');
       return tags;
     } catch (error) {
       console.log(error);
