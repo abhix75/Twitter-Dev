@@ -9,28 +9,8 @@ app.listen(3000, async () => {
   console.log("Server Started");
   await connect();
   console.log("MongoDb connected");
+
   const repo = new HashtagRepository();
-  const hashtags = await repo.bulkCreate([
-    {
-      title: "Trend",
-      tweets: [],
-    },
-    {
-      title: "Excited",
-      tweets: [],
-    },
-    {
-      title: "Python",
-      tweets: [],
-    },
-    {
-      title: "Fun",
-      tweets: [],
-    },
-    {
-      title: "Carrer",
-      tweets: [],
-    },
-  ]);
-  console.log(hashtags);
+  const response = await repo.findByName(['Python']);
+  console.log(response);
 });
