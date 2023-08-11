@@ -1,20 +1,23 @@
-const express = require("express");
-const connect = require("./config/database");
+import express from "express";
+import { connect } from "./config/database.js";
+import TweetService from "./Service/tweet-service.js";
+
 const app = express();
-const Tweet = require("./models/tweet");
-const Hashtag = require("./models/Hashtag");
-const { TweetRepository } = require("./repository");
-const TweetService = require('./Service/tweet-service')
 
 app.listen(3000, async () => {
-  console.log("Server Started");
-  await connect();
-  console.log("MongoDb connected");
+    console.log("Server Started");
 
-let service = new TweetService();
+    try {
+        await connect();
+        console.log("MongoDb connected");
 
-const tweet = service.create({
-  content: "#coding is so #excited and #fun"
-})
-console.log(tweet);
+        let service = new TweetService();
+
+        const tweet = service.create({
+            content: "i #love my #life #Style",
+        });
+        console.log(tweet);
+    } catch (error) {
+        console.error("Error:", error);
+    }
 });
