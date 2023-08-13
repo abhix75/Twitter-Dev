@@ -5,16 +5,16 @@ const likeSchema = new mongoose.Schema(
     onModel: {
       type: String,
       required: true,
-      enum: ["Tweet", "Comment"],
+      enum: ['Tweet', 'Comment'],
     },
     likeable: {
       type: mongoose.Schema.ObjectId,
       required: true,
-      refPath: "onModel",
+      refPath: 'onModel',
     },
     user: {
       type: mongoose.Schema.ObjectId,
-      ref: "User",
+      ref: 'User',
       required: true,
     },
   },
