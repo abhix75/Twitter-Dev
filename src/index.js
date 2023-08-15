@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api',apiRoutes);
 
-app.listen(3000, async () => {
+app.listen(5000, async () => {
     console.log("Server Started");
         await connect();
         console.log("MongoDb connected");
