@@ -41,3 +41,42 @@ export const getTweet = async (req, res) => {
     });
   }
 };
+
+
+export const deleteTweet = async (req, res) => {
+  try {
+    const response = await tweetService.destroyTweet(req.params.id);
+    return res.status(200).json({
+      success: true,
+      message: "Successfully fetched a tweet",
+      data: response,
+      err: {},
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "something went wrong",
+      data: {},
+      err: error,
+    });
+  }
+};
+
+export const updateTweet = async (req, res) => {
+  try {
+    const response = await tweetService.update(req.params.id,req.body);
+    return res.status(200).json({
+      success: true,
+      message: "Successfully fetched a tweet",
+      data: response,
+      err: {},
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "something went wrong",
+      data: {},
+      err: error,
+    });
+  }
+};

@@ -18,4 +18,6 @@ app.listen(5000, async () => {
     console.log("Server Started");
         await connect();
         console.log("MongoDb connected");
+
+
 });
